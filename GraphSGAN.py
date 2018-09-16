@@ -17,7 +17,7 @@ import os
 import random
 from FeatureGraphDataset import FeatureGraphDataset
 import pickle as pkl
-class ImprovedGAN(object):
+class GraphSGAN(object):
     def __init__(self, G, D, dataset, args):
         if os.path.exists(args.savedir):
             print('Loading model from ' + args.savedir)
@@ -159,7 +159,7 @@ class ImprovedGAN(object):
         return self.G(batch_size, cuda=self.args.cuda)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='PyTorch Improved GAN')
+    parser = argparse.ArgumentParser(description='PyTorch GraphS GAN')
     parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                         help='input batch size for training (default: 64)')
     parser.add_argument('--epochs', type=int, default=20, metavar='N',
@@ -198,6 +198,6 @@ if __name__ == '__main__':
     # but we load the example of cora
     with open('cora.dataset', 'r') as fdata:
         dataset = pkl.load(fdata)
-    gan = ImprovedGAN(Generator(200, dataset.k + dataset.d), Discriminator(dataset.k + dataset.d, dataset.m), dataset, args)
+    gan = GraphSGAN(Generator(200, dataset.k + dataset.d), Discriminator(dataset.k + dataset.d, dataset.m), dataset, args)
     gan.train() 
     
