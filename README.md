@@ -56,3 +56,14 @@ The expected accuracy of example should be above `0.83`.
   call `setting(label_num_per_class, test_num)`
   
  4. Replace `dataset` in `GraphSGAN.py` with built new dataset.
+ 
+ # Performance on some other datasets
+
+In the paper of [SCAN_DIS](https://papers.nips.cc/paper/8878-semi-supervisedly-co-embedding-attributed-networks.pdf), the performance of GraphSGAN on `Pubmed, Flickr` and `BlogCatalog` are tested:
+
+<i></i>| Pubmed | <i></i> | <i></i> | Flickr | <i></i> | <i></i> | BlogCatalog | <i></i> | 
+--- | --- | --- | --- |--- |--- |--- |--- |--- |
+Marco-F1 | Micro-F1 | Acc | Marco-F1 | Micro-F1 | Acc | Marco-F1 | Micro-F1 | Acc | 
+.839 | .842 | .841 | .697 | .715 | .702 | .698 | .703 | .719 |
+
+Although not responsible for the results, we think it is really worth reference.
